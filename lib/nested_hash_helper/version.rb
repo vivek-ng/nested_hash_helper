@@ -1,0 +1,3 @@
+module NestedHashHelper
+  VERSION = "0.1.0"
+end
