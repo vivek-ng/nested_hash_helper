@@ -23,7 +23,7 @@ def deep_delete_empty
        	  next
        end	
        if current_value.is_a?(current_class)
-       	    current_value.deep_delete_empty(*excluded_keys)
+       	    current_value.deep_delete_empty
        end	
 	end
 end
