@@ -18,4 +18,10 @@ class NestedHashHelperTest < Minitest::Unit::TestCase
   	assert_equal a.deep_except(:jj) , b
   end
 
+  def test_deep_delete_empty_two_level_nested
+  	a = {:gh => {:jj => {:kk => "bbbb" ,:pp => ""} , :ui => ""} , :puso => "opopo"}
+  	b = {:gh => {:jj => {:kk => "bbbb" }} , :puso => "opopo"}
+  	assert_equal a.deep_delete_empty , b
+  end
+
 end
