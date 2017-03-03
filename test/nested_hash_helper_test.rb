@@ -24,4 +24,9 @@ class NestedHashHelperTest < Minitest::Unit::TestCase
   	assert_equal a.deep_delete_empty , b
   end
 
+  def test_depth_for_one_level_nested
+  	a = {:gh => {:jj => "nbnbn" , :oo => "popo"} , :jj => "erere"}
+  	assert_equal a.find_depth , 2
+  end
+  
 end

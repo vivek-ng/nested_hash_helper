@@ -28,6 +28,22 @@ def deep_delete_empty
 	end
 end
 
+def find_depth
+	  maxx_depth = 1
+	  current_depth = 1
+	  self._find_depth(maxx_depth , current_depth)
+end
+
+def _find_depth(maxx_depth , current_depth)
+	current_class = self.class
+	self.each do |current_keys , current_value |
+		if current_value.is_a?(current_class)
+			maxx_depth  = current_value._find_depth(maxx_depth , current_depth + 1)
+		end
+	end
+	maxx_depth = (maxx_depth > current_depth)? maxx_depth : current_depth
+end
+
 end
 
 
