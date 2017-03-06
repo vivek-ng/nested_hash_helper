@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["vivek n"]
   spec.email         = ["vivekn@freshdesk.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{NestedHashHelper to deal with nested Hashes.}
+  spec.description   = %q{This gem eases your life in dealing with nested Hashes While building Rails apps.}
+  spec.homepage      = "https://github.com/vivek3894/nested_hash_helper"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
