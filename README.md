@@ -86,7 +86,7 @@ gem 'nested_hash_helper'
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
