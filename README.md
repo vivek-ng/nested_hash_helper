@@ -36,7 +36,7 @@ Development has just begun and is active and we will fix bugs , enhance function
    a =  {:user => {:name => "" , :age => 22 , :phone => 3333}}    
    a.deep_delete_empty  
    output ==> {:user => {:age => 22 , :phone => 3333}}  
-    ```  
+   ```  
 
 
 ### 3) find_depth
