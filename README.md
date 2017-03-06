@@ -103,7 +103,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Do Contribute if you come across any bugs / any important feature you feel is essential.
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/nested_hash_helper.
+Bug reports and pull requests are welcome on GitHub at https://github.com/vivek3894/nested_hash_helper.
 
 
 ## License
