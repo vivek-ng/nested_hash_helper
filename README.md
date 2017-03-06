@@ -12,15 +12,18 @@ Development has just begun and is active and we will fix bugs , enhance function
    
   This method extends the functionality of except method of ruby hash to nested hash. pass any number of keys to delete them from the hash . Just pass the immediate key and not the entire key path in the hash . 
 
-  Syntax   
+  Syntax 
+  ```ruby  
   a = {:name => "vivek" , :age => 22}  
   a.deep_except(:name)  
   output ==> {:age => 22}  
+  ```  
 
-
+  ```ruby  
   a = {:user => {:name => "vivek" , :age => 22 , :phone => 3333}}  
   a.deep_except(:phone , :age)  
   output ==> {:user => {:name => "vivek"}}  
+  ```  
 
 
 
@@ -29,10 +32,11 @@ Development has just begun and is active and we will fix bugs , enhance function
    This method deletes all the keys whose value is either empty or nil .
 
   Syntax   
+   ```ruby  
    a =  {:user => {:name => "" , :age => 22 , :phone => 3333}}    
    a.deep_delete_empty  
    output ==> {:user => {:age => 22 , :phone => 3333}}  
-
+    ```  
 
 
 ### 3) find_depth
@@ -40,9 +44,11 @@ Development has just begun and is active and we will fix bugs , enhance function
    This method finds the depth of your nested hash.
 
   Syntax   
+  ```ruby  
   a = {:user => {:name => {:last_name => "Vivek"}}}  
   a.find_depth  
   output ==> 3  
+  ```  
 
 
 ### 4) find_deep_intersection
@@ -50,21 +56,24 @@ Development has just begun and is active and we will fix bugs , enhance function
   This method returns intersection of two nested Hashes.
 
    Syntax   
+   ```ruby  
    a = {:user => {:name => "vivek" , :age => 22 , :phone => 3333}}  
    b = {:user => {:name => "rakesh" , :age => 22 , :phone => 3333}}  
    a.find_deep_intersection(b)  
    output ==> {:user => {:age => 22 , :phone => 3333}}  
-
+   ```  
 
 ### 5) find_deep_keys
  
   This method return all the parent keys of the corresponding value.
 
 
-  Syntax   
+  Syntax 
+  ```ruby    
    a = {:gh => {:jj => {:pop => "bbb" , :olo => "ooooo"}} , :pp => "ooooo"}  
    a.find_deep_keys("ooooo")  
-   output ==> [:gh , :jj , :olo]    
+   output ==> [:gh , :jj , :olo]  
+   ```  
 
 
 ## Installation
@@ -83,9 +92,6 @@ Or install it yourself as:
 
     $ gem install nested_hash_helper
 
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 
