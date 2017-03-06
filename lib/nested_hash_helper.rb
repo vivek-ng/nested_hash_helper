@@ -44,6 +44,51 @@ def _find_depth(maxx_depth , current_depth)
 	maxx_depth = (maxx_depth > current_depth)? maxx_depth : current_depth
 end
 
+def find_deep_intersection(compare_hash)
+	current_class = self.class
+	final_hash = current_class.new
+    self.each do |current_keys , current_value |
+    	if compare_hash.has_key?(current_keys)
+    		if current_value.is_a?(current_class) && compare_hash.fetch(current_keys).is_a?(current_class)
+               final_hash[current_keys] = current_value.find_deep_intersection(compare_hash.fetch(current_keys))
+    	elsif !current_value.is_a?(current_class) && !compare_hash.fetch(current_keys).is_a?(current_class) && (current_value == compare_hash.fetch(current_keys) )
+              final_hash[current_keys] = current_value
+    	end
+    	end
+    end
+    final_hash
+end
+
+def find_all_keys
+  current_class = self.class
+  all_keys = []
+  self.each do |current_keys , current_value |
+       all_keys.push(current_keys)
+       if current_value.is_a?(current_class)
+          all_keys.push(current_value.find_all_keys)
+       end
+  end
+  all_keys
+end
+
+def find_deep_keys(value)
+  current_class = self.class
+  deep_keys = []
+    self.each do |current_keys , current_value|
+       if !current_value.is_a?(current_class) && current_value == value 
+             deep_keys = deep_keys.push(current_keys)
+        elsif current_value.is_a?(current_class)
+          future_deep_keys = current_value.find_deep_keys(value)
+          if future_deep_keys.size >= 1
+             deep_keys.push(current_keys)
+             deep_keys += future_deep_keys
+             return deep_keys
+          end
+       end
+    end
+    deep_keys
+end
+
 end
 
 
