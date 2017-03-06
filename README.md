@@ -13,7 +13,9 @@ Development has just begun and is active and we will fix bugs , enhance function
   This method extends the functionality of except method of ruby hash to nested hash. pass any number of keys to delete them from the hash . Just pass the immediate key and not the entire key path in the hash . 
 
   Syntax ==> a = {:name => "vivek" , :age => 22}
+
              a.deep_except(:name)
+
              output ==> {:age => 22}
 
              a = {:user => {:name => "vivek" , :age => 22 , :phone => 3333}}
@@ -24,8 +26,10 @@ Development has just begun and is active and we will fix bugs , enhance function
    
    This method deletes all the keys whose value is either empty or nil .
 
-  Syntax ==> a =  {:user => {:name => "" , :age => 22 , :phone => 3333}}        
+  Syntax ==> a =  {:user => {:name => "" , :age => 22 , :phone => 3333}}    
+
              a.deep_delete_empty
+
              output ==> {:user => {:age => 22 , :phone => 3333}}  
 
 3) find_depth
@@ -33,7 +37,9 @@ Development has just begun and is active and we will fix bugs , enhance function
    This method finds the depth of your nested hash.
 
   Syntax ==> a = {:user => {:name => {:last_name => "Vivek"}}}
+
              a.find_depth
+
              output ==> 3
 
 4) find_deep_intersection
@@ -41,8 +47,11 @@ Development has just begun and is active and we will fix bugs , enhance function
   This method returns intersection of two nested Hashes.
 
   Syntax ==> a = {:user => {:name => "vivek" , :age => 22 , :phone => 3333}}
+
              b = {:user => {:name => "rakesh" , :age => 22 , :phone => 3333}}
+
              a.find_deep_intersection(b)
+
              output ==> {:user => {:age => 22 , :phone => 3333}}
 
 5) find_deep_keys
@@ -50,7 +59,9 @@ Development has just begun and is active and we will fix bugs , enhance function
   This method return all the parent keys of the corresponding value.
 
   Syntax ==>   	a = {:gh => {:jj => {:pop => "bbb" , :olo => "ooooo"}} , :pp => "ooooo"}
+
                 a.find_deep_keys("ooooo")
+                
                 output ==> [:gh , :jj , :olo]
 
    
