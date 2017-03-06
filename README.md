@@ -26,6 +26,8 @@ Development has just begun and is active and we will fix bugs , enhance function
 
   output ==> {:user => {:name => "vivek"}}
 
+  
+
 2) deep_delete_empty
    
    This method deletes all the keys whose value is either empty or nil .
@@ -38,6 +40,8 @@ Development has just begun and is active and we will fix bugs , enhance function
 
    output ==> {:user => {:age => 22 , :phone => 3333}}  
 
+
+
 3) find_depth
 
    This method finds the depth of your nested hash.
@@ -49,6 +53,8 @@ Development has just begun and is active and we will fix bugs , enhance function
   a.find_depth
 
   output ==> 3
+
+
 
 4) find_deep_intersection
 
@@ -63,6 +69,8 @@ Development has just begun and is active and we will fix bugs , enhance function
    a.find_deep_intersection(b)
 
    output ==> {:user => {:age => 22 , :phone => 3333}}
+
+
 
 5) find_deep_keys
  
