@@ -59,18 +59,6 @@ def find_deep_intersection(compare_hash)
     final_hash
 end
 
-def find_all_keys
-  current_class = self.class
-  all_keys = []
-  self.each do |current_keys , current_value |
-       all_keys.push(current_keys)
-       if current_value.is_a?(current_class)
-          all_keys.push(current_value.find_all_keys)
-       end
-  end
-  all_keys
-end
-
 def find_deep_keys(value)
   current_class = self.class
   deep_keys = []

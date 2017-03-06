@@ -28,5 +28,32 @@ class NestedHashHelperTest < Minitest::Unit::TestCase
   	a = {:gh => {:jj => "nbnbn" , :oo => "popo"} , :jj => "erere"}
   	assert_equal a.find_depth , 2
   end
+
+  def test_deep_keys_for_one_level_nested
+  	a = {:gh => {:jj => "bnbn"} ,:kk => "pop"}
+  	b = [:gh , :jj]
+  	assert_equal a.find_deep_keys("bnbn") , b
+  end
+
+  def test_deep_keys_for_two_level_nested
+  	a = {:gh => {:jj => {:pop => "bbb" , :olo => "ooooo"}} , :pp => "ooooo"}
+  	b = [:gh , :jj , :olo]
+  	assert_equal a.find_deep_keys("ooooo") , b
+  end
   
+  def test_deep_intersect_for_one_level_nested
+  	a = {:gh => {:pp => "vivek" , :ol => "lol"} , :il => {:fg => "nn"}}
+  	b = {:gh => {:pp => "lll" , :ol => "lol"}}
+  	c = {:gh => {:ol => "lol"}}
+  	assert_equal a.find_deep_intersection(b) , c
+  end
+  
+  def test_deep_intersect_two_level_nested
+    a = {:gh => {:pp => {:sd => "lat" , :iko => "wer"} , :ol => "lol"} , :il => {:fg => "nn"}}
+    b = {:gh => {:pp => {:sd => "lat" , :iko => ""} , :ol => "lol"} , :il => {:fg => "nn"}}
+    c = {:gh => {:pp => {:sd => "lat"} , :ol => "lol"} , :il => {:fg => "nn"}}
+    assert_equal a.find_deep_intersection(b) , c
+  end
+
+
 end
