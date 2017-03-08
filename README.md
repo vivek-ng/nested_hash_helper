@@ -79,7 +79,6 @@ Development has just begun and is active and we will fix bugs , enhance function
       This method will convert the given nested hash to an array
 
       Syntax
-      ```ruby
       a =  {:fg => {:gh => {:bn => "sdjkhds"} , :jk => ""} , :kl => {:gh => "" , :jk => "sdjkhds"}}
       a.hash_to_array
       output ==> [[:fg, [:gh, [:bn, "sdjkhds"]], [:jk, ""]], [:kl, [:gh, ""], [:jk, "sdjkhds"]]]
@@ -87,25 +86,22 @@ Development has just begun and is active and we will fix bugs , enhance function
       a = {:fg => {:gh => {:bn => ""}} , :kl =>{:jk => "nnnnnnn"}}
       a.hash_to_array
       output ==> [[:fg, [:gh, [:bn, ""]]], [:kl, [:jk, "nnnnnnn"]]]  
-      ```  
+
 ### 7) deep_delete(key)
     This method is used to delete a key in a nested hash
      
      Syntax
-       ```ruby
         a = {:fg => {:gh => {:bn => "sdjkhds"} , :bn => ""} , :kl => {:gh => "" , :jk => "sdjkhds"}}
         a.deep_delete(:gh)
         output ==> {:fg=>{:bn=>""}, :kl=>{:jk=>"sdjkhds"}}   
-       ```
+
 ### 8) find_all_values(key)
      This method is used to find all the values of a given key 
 
-     Syntax
-     ```ruby  
+     Syntax  
       data = {:students => {:a =>{:name => "vivek"} , :b=>{:name => "rakesh"}}}
       data.find_all_values(:name)
       output ==> ["vivek" , "rakesh"]
-      ```  
 
 ## Installation
 
