@@ -54,6 +54,23 @@ class NestedHashHelperTest < Minitest::Unit::TestCase
     c = {:gh => {:pp => {:sd => "lat"} , :ol => "lol"} , :il => {:fg => "nn"}}
     assert_equal a.find_deep_intersection(b) , c
   end
+ 
+  def test_hash_to_array_for_two_level_nested
+  	a = {:fg => {:gh => {:bn => "sdjkhds"} , :jk => ""} , :kl => {:gh => "" , :jk => "sdjkhds"}}
+    b = [[:fg, [:gh, [:bn, "sdjkhds"]], [:jk, ""]], [:kl, [:gh, ""], [:jk, "sdjkhds"]]]
+    c = {:fg => {:gh => {:bn => ""}} , :kl =>{:jk => "nnnnnnn"}}
+    d = [[:fg, [:gh, [:bn, ""]]], [:kl, [:jk, "nnnnnnn"]]]
+    assert_equal a.hash_to_array , b
+    assert_equal c.hash_to_array , d
+  end
 
+  def test_deep_delete
+  	a = {:fg => {:gh => {:bn => "sdjkhds"} , :bn => ""} , :kl => {:gh => "" , :jk => "sdjkhds"}}
+    b = {:fg=>{:bn=>""}, :kl=>{:jk=>"sdjkhds"}}
+    assert_equal a.deep_delete(:gh) , b
+    c = {:fg => {:gh => {:bn => ""}} , :kl =>{:bn => "nnnnnnn"}}
+    d = {:fg=>{}, :kl=>{:bn=>"nnnnnnn"}}
+    assert_equal c.deep_delete(:gh) , d
+  end
 
 end

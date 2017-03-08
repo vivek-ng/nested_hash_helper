@@ -77,6 +77,48 @@ def find_deep_keys(value)
     deep_keys
 end
 
+def hash_to_array
+  current_class = self.class
+  final_array = []
+    self.each do | current_keys , current_value | 
+      temp_array = []
+      if current_value.is_a?(current_class)
+        temp_array.push(current_keys)
+        temp_array += current_value.hash_to_array
+        final_array.push(temp_array)
+      else
+        temp_array.push(current_keys)
+        temp_array.push(current_value)
+        final_array.push(temp_array)
+      end
+    end
+    final_array
+end
+
+def find_all_values(key)
+   current_class = self.class
+   values = []
+   self.each do |current_keys , current_value|
+      if current_value.is_a?(current_class)
+         values += current_value.find_all_values(key)
+        elsif current_keys == key
+         values.push(current_value)
+      end
+   end
+ values
+end
+
+def deep_delete(key)
+  current_class = self.class
+  self.each do |current_keys , current_value|
+    if current_keys == key
+      self.delete(current_keys)
+    elsif current_value.is_a?(current_class)
+      current_value.deep_delete(key)
+    end
+  end
+end
+
 end
 
 
